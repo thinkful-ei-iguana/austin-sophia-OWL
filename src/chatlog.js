@@ -1,11 +1,11 @@
 
 
 
-function chatLog (){
+// function chatLog (){
     
     
-    return(
+//     return(
         
 
-    );
-}
+//     );
+// }
