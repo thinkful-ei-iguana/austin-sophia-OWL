@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css'
 import participantsList from './participantsList';
 import Participant from './participant';
-//import Chatlog from './chatlog';
+import Chatlog from './chatlog';
 import Stage from './stage';
 
 function App() {
@@ -27,12 +27,24 @@ function App() {
     )
   });
   
+  let chatLogs = participantsList.map(function (chatEvents){
+    return (
+      <Chatlog 
+        id={chatEvents.participantId}
+        type={chatEvents.type}
+        message={chatEvents.message}
+        time={chatEvents.time}
+        timestamp={chatEvents.timestamp}>
+      </Chatlog>
+    )
+  });
 
 
   return (
     <div className="App">
-      {participants}
-      {stageParticipants}
+      {participants},
+      {stageParticipants},
+      {chatLogs}
     </div>
   );
 }
