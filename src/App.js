@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css'
 import participantsList from './participantsList';
 import Participant from './participant';
-import Chatlog from './chatlog';
+//import Chatlog from './chatlog';
 import Stage from './stage';
 
 function App() {
@@ -20,7 +20,6 @@ function App() {
   let stageParticipants = participantsList.map(function (participant){
     return (
       <Stage
-        key={participant.id} 
         name={participant.name} 
         avatar={participant.avatar}
         onStage={participant.onStage}>
