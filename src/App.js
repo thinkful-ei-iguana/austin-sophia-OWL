@@ -1,24 +1,39 @@
 import React from 'react';
 import './App.css'
-import participantList from './participantsList';
+import participantsList from './participantsList';
 import Participant from './participant';
 import Chatlog from './chatlog';
 import Stage from './stage';
 
 function App() {
-  let participant = participantList.participants.map(function (participant) {
-  return (
-    <Participant>
-      key={participant.id} 
-      name={participant.name} 
-      avatar={participant.avatar}
-      inSession={participant.inSession}
-    </Participant>
-  )})
+  let participants = participantsList.map(function (participant) {
+    return (
+      <Participant
+        key={participant.id} 
+        name={participant.name} 
+        avatar={participant.avatar}
+        inSession={participant.inSession}>
+      </Participant>
+    )
+  });
+
+  let stageParticipants = participantsList.map(function (participant){
+    return (
+      <Stage
+        key={participant.id} 
+        name={participant.name} 
+        avatar={participant.avatar}
+        onStage={participant.onStage}>
+      </Stage>
+    )
+  });
+  
+
 
   return (
     <div className="App">
-      {participant}
+      {participants}
+      {stageParticipants}
     </div>
   );
 }
